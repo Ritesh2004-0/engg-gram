@@ -1,0 +1,43 @@
+notes-app/
+│
+├── frontend/        # React app
+│
+├── backend/         # FastAPI app
+│   ├── main.py
+│   ├── routes/
+│   ├── models/
+│   ├── database/
+│   └── uploads/
+│
+└── README.md
+
+
+
+
+
+backend/
+│
+├── app/
+│   │
+│   ├── main.py
+│   │
+│   ├── database/
+│   │   └── connection.py
+│   │
+│   ├── models/
+│   │   ├── admin_model.py
+│   │   └── note_model.py
+│   │
+│   ├── routes/
+│   │   ├── admin_routes.py
+│   │   └── note_routes.py
+│   │
+│   ├── utils/
+│   │   ├── auth.py
+│   │   └── file_handler.py
+│   │
+│   └── uploads/
+│
+├── .env
+│
+└── requirements.txt

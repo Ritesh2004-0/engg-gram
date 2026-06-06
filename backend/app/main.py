@@ -20,5 +20,5 @@ app.include_router(note_router)
 @app.get("/")
 def root():
     return {
-        "message": "DBATU Notes API Running Successfully"
+        "message": "Notes API Running Successfully"
     }
