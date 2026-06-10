@@ -43,8 +43,7 @@ export function About() {
           </strong>{" "}
 
           is a community-driven platform designed specifically for students of
-          Dr. Babasaheb Ambedkar Technological University (DBATU)
-          and its affiliated colleges.
+          Engineering 
 
         </p>
 
@@ -68,7 +67,7 @@ export function About() {
         <p className="text-gray-700 dark:text-gray-300">
 
           To make technical education accessible and manageable by providing
-          a unified platform for DBATU students to share, discover,
+          a unified platform for Engineering students to share, discover,
           and download high-quality academic resources across all
           engineering branches.
 

@@ -154,7 +154,7 @@ export function Home() {
 
             Access and download high-quality engineering notes,
             study materials, and previous year papers curated
-            for DBATU students.
+            for Engineering students.
 
           </p>
 

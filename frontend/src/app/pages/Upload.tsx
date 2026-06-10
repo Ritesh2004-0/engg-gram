@@ -57,7 +57,7 @@ export function Upload() {
             <CheckCircle2 className="h-6 w-6 text-green-500 shrink-0" />
             <div>
               <h3 className="font-semibold">Upload Successful!</h3>
-              <p className="text-sm text-green-700 mt-1">Thank you for contributing to the DBATU community. Your notes will be available to others soon.</p>
+              <p className="text-sm text-green-700 mt-1">Thank you for contributing to the Engineering community. Your notes will be available to others soon.</p>
             </div>
           </div>
         )}
