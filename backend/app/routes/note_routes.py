@@ -60,11 +60,9 @@ async def upload_note(
 
         file.file,
 
-        resource_type="image",
+        resource_type="raw",
 
         folder="dbatu_notes"
-        
-        public_id=file.filename.replace(".pdf", "")
     )
 
     pdf_url = upload_result["secure_url"]
