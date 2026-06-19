@@ -177,11 +177,17 @@ export function NoteCard({
 
         {/* View */}
 
-        <a
-          href={`/viewer/${encodeURIComponent(fileUrl)}`}
+        <button
+          onClick={() => {
+            window.open(
+              `/viewer/${encodeURIComponent(fileUrl)}`,
+              "_blank"
+            );
+          }}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg"
         >
           View
-        </a>
+        </button>
 
         {/* Like */}
 

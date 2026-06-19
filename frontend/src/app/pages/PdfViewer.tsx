@@ -1,20 +1,21 @@
 import { useParams } from "react-router";
 
 export function PdfViewer() {
-
   const { fileName } = useParams();
 
-  if (!fileName)
-    return <h1>PDF Not Found</h1>;
+  if (!fileName) {
+    return <div>PDF not found</div>;
+  }
 
-  const pdfUrl =
-    decodeURIComponent(fileName);
+  const pdfUrl = decodeURIComponent(fileName);
 
   return (
-    <iframe
-      src={pdfUrl}
-      className="w-full h-screen"
-      title="PDF Viewer"
-    />
+    <div className="w-full h-screen">
+      <iframe
+        src={pdfUrl}
+        className="w-full h-full"
+        title="PDF Viewer"
+      />
+    </div>
   );
 }
