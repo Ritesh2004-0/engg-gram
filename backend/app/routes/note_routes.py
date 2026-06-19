@@ -58,14 +58,14 @@ async def upload_note(
         )
 
     # Upload PDF to Cloudinary
-    print("Secure URL:", upload_result["secure_url"])
-    print("Public ID:", upload_result["public_id"])
+    
     upload_result = cloudinary.uploader.upload(
     file.file,
     resource_type="auto",
     folder="dbatu_notes"
 )
-
+    print("Secure URL:", upload_result["secure_url"])
+    print("Public ID:", upload_result["public_id"])
     print("CLOUDINARY RESULT:", upload_result)
 
     pdf_url = upload_result["secure_url"]
