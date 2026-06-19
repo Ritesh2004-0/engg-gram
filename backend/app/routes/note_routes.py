@@ -64,9 +64,7 @@ async def upload_note(
     resource_type="auto",
     folder="dbatu_notes"
 )
-    print("Secure URL:", upload_result["secure_url"])
-    print("Public ID:", upload_result["public_id"])
-    
+
     print("CLOUDINARY RESULT:", upload_result)
 
     pdf_url = upload_result["secure_url"]
