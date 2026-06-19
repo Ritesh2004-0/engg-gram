@@ -183,11 +183,11 @@ export function NoteCard({
           href={fileUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg"
+          download
+          className="bg-blue-600 text-white px-5 py-2 rounded-lg"
         >
-          View
+          View PDF
         </a>
-
         {/* Like */}
 
         <button
