@@ -60,7 +60,7 @@ async def upload_note(
 
     upload_result = cloudinary.uploader.upload(
     file.file,
-    resource_type="auto",
+    resource_type="raw",
     folder="dbatu_notes",
     public_id=filename
 )
