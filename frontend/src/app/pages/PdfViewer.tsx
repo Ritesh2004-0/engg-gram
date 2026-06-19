@@ -4,35 +4,17 @@ export function PdfViewer() {
 
   const { fileName } = useParams();
 
-  if (!fileName) {
-
-    return (
-
-      <div className="text-center mt-10">
-
-        PDF not found
-
-      </div>
-    );
-  }
+  if (!fileName)
+    return <h1>PDF Not Found</h1>;
 
   const pdfUrl =
     decodeURIComponent(fileName);
 
   return (
-
-    <div className="w-full h-screen bg-gray-100">
-
-      <iframe
-
-        src={`https://docs.google.com/gview?embedded=true&url=${pdfUrl}`}
-
-        title="PDF Viewer"
-
-        className="w-full h-full"
-
-      />
-
-    </div>
+    <iframe
+      src={pdfUrl}
+      className="w-full h-screen"
+      title="PDF Viewer"
+    />
   );
 }

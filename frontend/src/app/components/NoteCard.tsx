@@ -178,15 +178,9 @@ export function NoteCard({
         {/* View */}
 
         <a
-          href={fileUrl}
-          target="_blank"
-          rel="noreferrer"
-
-          className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition-all duration-300 hover:scale-105"
+          href={`/viewer/${encodeURIComponent(fileUrl)}`}
         >
-
           View
-
         </a>
 
         {/* Like */}

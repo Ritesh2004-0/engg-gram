@@ -65,7 +65,7 @@ async def upload_note(
     public_id=filename
     )
 
-    pdf_url = upload_result["secure_url"] + ".pdf"
+    pdf_url = upload_result["secure_url"]
 
     # MongoDB document
     note = {
