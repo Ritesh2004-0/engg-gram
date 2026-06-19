@@ -63,10 +63,9 @@ async def upload_note(
     resource_type="raw",
     folder="dbatu_notes",
     public_id=filename
-    )
+)
 
-    pdf_url = upload_result["secure_url"] + ".pdf"
-
+    print(upload_result)
     # MongoDB document
     note = {
 
