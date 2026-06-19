@@ -37,7 +37,7 @@ async def upload_note(
     subject: str = Form(...),
     semester: str = Form(...),
     file: UploadFile = File(...),
-    user=Depends(verify_token)
+    
 
 ):
 
