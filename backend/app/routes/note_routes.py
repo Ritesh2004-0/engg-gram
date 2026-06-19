@@ -1,3 +1,5 @@
+import uuid
+
 import cloudinary.uploader
 
 from bson import ObjectId
@@ -56,34 +58,27 @@ async def upload_note(
         )
 
     # Upload PDF to Cloudinary
-    filename = file.filename.replace(".pdf", "")
+    import uuid
 
     upload_result = cloudinary.uploader.upload(
     file.file,
-    resource_type="raw",
+    resource_type="auto",
     folder="dbatu_notes",
-    public_id=filename
+    public_id=str(uuid.uuid4())
 )
 
-    print(upload_result)
+    pdf_url = upload_result["secure_url"]
     # MongoDB document
     note = {
-
-        "title": title,
-
-        "branchId": branchId,
-
-        "subject": subject,
-
-        "semester": semester,
-
-        "file_url": pdf_url,
-
-        "downloads": 0,
-
-        "likes": 0
-    }
-
+    "title": title,
+    "branchId": branchId,
+    "subject": subject,
+    "semester": semester,
+    "file_url": pdf_url,
+    "public_id": upload_result["public_id"],
+    "downloads": 0,
+    "likes": 0
+}
     result = notes_collection.insert_one(note)
 
     return {
