@@ -62,11 +62,10 @@ async def upload_note(
     upload_result = cloudinary.uploader.upload(
     file.file,
     resource_type="auto",
-    folder="dbatu_notes",
-    public_id=file.filename.replace(".pdf", ""),
-    use_filename=True,
-    unique_filename=False
+    folder="dbatu_notes"
 )
+
+    print("CLOUDINARY RESULT:", upload_result)
 
     pdf_url = upload_result["secure_url"]
     # MongoDB document
