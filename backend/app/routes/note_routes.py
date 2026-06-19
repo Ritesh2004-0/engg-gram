@@ -30,65 +30,80 @@ notes_collection = db["notes"]
 # =========================
 
 @router.post("/notes/upload")
-
 async def upload_note(
 
     title: str = Form(...),
-
     branchId: str = Form(...),
-
     subject: str = Form(...),
-
     semester: str = Form(...),
-
     file: UploadFile = File(...),
-
     user=Depends(verify_token)
 
 ):
 
     # Validate PDF
-    if not file.filename.endswith(".pdf"):
+
+    if not file.filename.lower().endswith(".pdf"):
 
         raise HTTPException(
-
             status_code=400,
-
             detail="Only PDF files allowed"
         )
 
-    # Upload PDF to Cloudinary
-    
-    upload_result = cloudinary.uploader.upload(
-    file.file,
-    resource_type="raw",
-    folder="dbatu_notes",
-    public_id=file.filename.replace(".pdf", "")
-)
+    try:
 
-    pdf_url = upload_result["secure_url"] + ".pdf"
-    # MongoDB document
-    note = {
-    "title": title,
-    "branchId": branchId,
-    "subject": subject,
-    "semester": semester,
-    "file_url": pdf_url,
-    "public_id": upload_result["public_id"],
-    "downloads": 0,
-    "likes": 0
-}
-    result = notes_collection.insert_one(note)
+        # Upload PDF to Cloudinary
 
-    return {
+        upload_result = cloudinary.uploader.upload(
+            file.file,
+            resource_type="raw",
+            folder="dbatu_notes",
+            public_id=file.filename.replace(".pdf", "")
+        )
 
-        "message":
-            "Note Uploaded Successfully",
+        # Get URL
 
-        "note_id":
-            str(result.inserted_id)
-    }
+        pdf_url = upload_result["secure_url"]
 
+        # Ensure .pdf extension
+
+        if not pdf_url.endswith(".pdf"):
+            pdf_url += ".pdf"
+
+        # MongoDB Document
+
+        note = {
+
+            "title": title,
+            "branchId": branchId,
+            "subject": subject,
+            "semester": semester,
+
+            "file_url": pdf_url,
+
+            "public_id": upload_result["public_id"],
+
+            "downloads": 0,
+            "likes": 0
+        }
+
+        result = notes_collection.insert_one(note)
+
+        return {
+
+            "message": "Note Uploaded Successfully",
+
+            "note_id": str(result.inserted_id),
+
+            "file_url": pdf_url
+        }
+
+    except Exception as e:
+
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
 
 # =========================
 # Get Notes
