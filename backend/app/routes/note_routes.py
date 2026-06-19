@@ -65,11 +65,8 @@ async def upload_note(
 
         pdf_url = upload_result["secure_url"]
 
-        # Ensure .pdf extension
-
-        if not pdf_url.endswith(".pdf"):
-            pdf_url += ".pdf"
-
+        if not pdf_url.lower().endswith(".pdf"):
+            pdf_url = f"{pdf_url}.pdf"
         # MongoDB Document
 
         note = {
