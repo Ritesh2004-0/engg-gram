@@ -43,30 +43,33 @@ export function NoteCard({
   // Download
   // =========================
 
-  const handleDownload =
-    async () => {
+const handleDownload = async () => {
+  try {
 
-    try {
+    await axios.put(
+      `${API_BASE_URL}/notes/download/${id}`
+    );
 
-      await axios.put(
+    const link = document.createElement("a");
 
-        `${API_BASE_URL}/notes/download/${id}`
-      );
+    link.href = fileUrl;
 
-      // Open PDF
+    link.setAttribute(
+      "download",
+      `${title}.pdf`
+    );
 
-      window.open(
+    document.body.appendChild(link);
 
-        fileUrl,
+    link.click();
 
-        "_blank"
-      );
+    document.body.removeChild(link);
 
-    } catch (error) {
+  } catch (error) {
 
-      console.error(error);
-    }
-  };
+    console.error(error);
+  }
+};
 
   // =========================
   // Like
