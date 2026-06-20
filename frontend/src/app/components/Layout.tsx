@@ -329,7 +329,7 @@ export function Layout() {
 
             </Link>
             <Link
-              to="/terms-and-conditions"
+              to="/terms"
               className="hover:text-green-500"
             >
               Terms & Conditions
