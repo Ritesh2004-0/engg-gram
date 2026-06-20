@@ -328,6 +328,12 @@ export function Layout() {
               Contact
 
             </Link>
+            <Link
+              to="/terms-and-conditions"
+              className="hover:text-green-500"
+            >
+              Terms & Conditions
+            </Link>
 
           </div>
           </div>

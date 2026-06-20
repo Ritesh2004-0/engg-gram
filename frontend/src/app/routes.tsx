@@ -36,6 +36,8 @@ from "./pages/PrivacyPolicy";
 import { Contact }
 from "./pages/Contact";
 
+import { Terms } from "./pages/Terms";
+
 export const router =
   createBrowserRouter([
 
@@ -86,6 +88,11 @@ export const router =
         path: "contact",
         Component: Contact
       },
+
+      {
+        path: "terms",
+        Component: Terms
+      }
     ]
   },
 
